@@ -101,7 +101,7 @@ const vTimerCountdown = {
         </a>
       </section>
     </section>
-    <section class="outer" style="display: none">
+    <section class="outer" style="display: block">
       <h3>{{ localeStore.cLangStrings.game.endscreen.nextWordleTime }}</h3>
 
       <section>
