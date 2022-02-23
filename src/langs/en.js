@@ -33,7 +33,7 @@ export const lang_en = {
                 "six goes!",
               ],
               sharePromptText: [
-                "Flex on everyone",
+                "Be a show-off",
                 "Share off your score",
                 "Become part of the twitter craze",
               ],
@@ -71,7 +71,7 @@ export const lang_en = {
                 "Try again tomorrow.",
                 "Try again tomorrow.",
               ],
-              sharePromptText: ["Get roasted on twitter", "Share your failure"],
+              sharePromptText: ["Get roasted on twitter", "Share the failure"],
             },
           },
         },
