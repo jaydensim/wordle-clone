@@ -99,6 +99,7 @@ p {
 @keyframes pulse {
   50% {
     background-color: var(--color-default-background);
+    border: 2px solid var(--color-default-background);
   }
 }
 @keyframes faliure {
