@@ -31,7 +31,7 @@ let geMS =
     Math.floor(
       Math.random() *
         localeStore.cLangStrings.game.endscreen[mainStore.gameStatus.result]
-          .titles.length
+          .sharePromptText.length
     )
   ];
 
