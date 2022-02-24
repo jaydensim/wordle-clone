@@ -61,7 +61,7 @@ setTimeout(() => {
       "
     />
   </div>
-  <Watermark />
+  <Watermark githubLink="https://github.com/jaydensim/wordle-clone" />
 </template>
 
 <style scoped>

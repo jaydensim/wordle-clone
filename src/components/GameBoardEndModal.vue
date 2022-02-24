@@ -60,6 +60,9 @@ const vTimerCountdown = {
 
 <template>
   <section class="GameBoardEndModal">
+    <h3 v-if="mainStore.gameStatus.result == 'success'">
+      THE WORD WAS <em>{{ mainStore.locale.wordOfTheDay }}</em>
+    </h3>
     <h1>{{ geMT }}</h1>
     <p>
       {{ geMU }}

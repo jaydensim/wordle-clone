@@ -2,11 +2,20 @@
 const isvercel = process.env.VERCEL_ENV;
 const ishash = process.env.VERCEL_GIT_COMMIT_SHA;
 const isRepo = process.env.VERCEL_GIT_COMMIT_REF;
+
+defineProps({
+  githubLink: {
+    type: String,
+    default: "",
+  },
+});
 </script>
 
 <template>
   <img src="../assets/ARCTICLOGO_SVG.svg" class="arctic" />
   <p class="rev">
+    <a v-if="githubLink !== ''" :href="githubLink">GitHub</a>
+    <br v-if="githubLink !== ''" />
     {{ ishash }}
     <br />
     {{ isvercel }} on {{ isRepo }}
