@@ -1,18 +1,20 @@
 # wordle-clone
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+- [Visual Studio Code](https://code.visualstudio.com/)
+  - [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (and disable Vetur)
+  - [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin).
 
 ## Project Setup
 
+Ensure you have the necessary prerequisites installed on your system:
+
+- Node.JS (hint hint: although you can install Node.JS from [here](https://nodejs.org/en/download/), I highly recommend you use `nvm` instead.)
+  - NPM (should be preinstalled)
+- Git
+
 ```sh
+git clone https://github.com/jaydensim/wordle-clone.git
+cd wordle-clone
 npm install
 ```
 
@@ -21,6 +23,8 @@ npm install
 ```sh
 npm run dev
 ```
+
+A Vite development server will start on port `3000` (`http://localhost:3000`).
 
 ### Compile and Minify for Production
 
