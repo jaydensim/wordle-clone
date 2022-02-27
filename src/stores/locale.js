@@ -1,9 +1,12 @@
 import { defineStore } from "pinia";
+import { useSettingsStore } from "./settings.js";
 import { lang_en } from "../langs/en.js";
+import { lang_uk } from "../langs/uk.js";
 
 export const useLocaleStore = defineStore({
   id: "locale",
   state: () => ({
+    langList: [lang_en, lang_uk],
     cLangName: "",
     cLangVariant: "",
     cLangStrings: {
@@ -12,11 +15,28 @@ export const useLocaleStore = defineStore({
         snark: "",
         headerButtons: {
           settings: "",
-          shareGame: "",
+        },
+        settings: {
+          title: "",
+          section: {
+            accessibility: "",
+            interface: "",
+          },
+          setting: {
+            language: {
+              name: "",
+              description: "",
+            },
+            highContrast: {
+              name: "",
+              description: "",
+            },
+          },
         },
       },
       game: {
         endscreen: {
+          thewordwas: "",
           nextWordleTime: "",
           buttonLabels: {
             faliuremanagement: "",
@@ -25,7 +45,7 @@ export const useLocaleStore = defineStore({
           success: {
             titles: [""],
             subtitle: "",
-            subtitleMarkLater: [""],
+            subtitleMarkLater: ["", "", "", "", "", ""],
             sharePromptText: [""],
           },
           almost: {
@@ -43,7 +63,6 @@ export const useLocaleStore = defineStore({
         },
       },
     },
-    langList: [lang_en],
   }),
   actions: {
     setLanguage(langCode) {
@@ -59,10 +78,33 @@ export const useLocaleStore = defineStore({
         cLangVariant: variantObject.variantName,
         cLangStrings: variantObject.strings,
       });
+      const settingsStore = useSettingsStore();
+      settingsStore.language = langCode;
     },
     initalise() {
-      const currentLanguage = localStorage.getItem("language") || "en-au";
+      const settingsStore = useSettingsStore();
+      const currentLanguage = settingsStore.language;
       this.setLanguage(currentLanguage);
     },
+  },
+  getters: {
+    getLanguageList() {
+      let languages = [];
+      this.langList.forEach((language) => {
+        let langISO = language.langISO;
+        let langName = language.langName;
+        language.variants.forEach((variant) => {
+          languages.push({
+            name: langName + " - " + variant.variantName,
+            code: langISO + "-" + variant.variantISO,
+          });
+        });
+      });
+      console.log(languages);
+      return languages;
+    },
+  },
+  persistedState: {
+    persist: false,
   },
 });

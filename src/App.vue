@@ -7,10 +7,12 @@ import BackgroundModal from "./components/BackgroundModal.vue";
 import { ref } from "vue";
 import { useMainStore } from "./stores/main.js";
 import { useLocaleStore } from "./stores/locale.js";
+import { useSettingsStore } from "./stores/settings.js";
 
 const mainStore = useMainStore();
 const localeStore = useLocaleStore();
-localeStore.initalise();
+const settingsStore = useSettingsStore();
+localeStore.initalise(settingsStore.language);
 let hiddenInput = ref.hiddenInput;
 
 setTimeout(() => {
@@ -37,7 +39,7 @@ setTimeout(() => {
     mainStore.focused = true;
   });
   mainStore.focused = true;
-}, 2000);
+}, 1000);
 </script>
 
 <template>
@@ -47,7 +49,7 @@ setTimeout(() => {
   <main class="app-container" :data-blur="mainStore.ui.isModalOpen">
     <StandardHeader />
     <GameBoardRenderer @click="hiddenInput.focus()" />
-    <p></p>
+    <p><span>🇺🇦</span><span>Слава Україні</span></p>
   </main>
   <div class="app-hidden-elements">
     <input
@@ -67,6 +69,8 @@ setTimeout(() => {
 <style scoped>
 p {
   text-align: center;
+  display: flex;
+  flex-flow: column;
 }
 
 .app-container {
@@ -74,6 +78,6 @@ p {
 }
 .app-container[data-blur="true"] {
   filter: blur(5px);
-  transition: filter 0.5s linear;
+  transition: filter 0.1s linear;
 }
 </style>

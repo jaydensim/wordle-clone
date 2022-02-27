@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { acceptedWords, WODs } from "../utils/words";
+import { acceptedWords, WODs, specialWords } from "../utils/words";
 import { getTodayWord } from "../utils/utils";
 
 import GameBoardEndModal from "../components/GameBoardEndModal.vue";
@@ -9,7 +9,7 @@ export const useMainStore = defineStore({
   state: () => ({
     focused: false,
     locale: {
-      wordList: [acceptedWords, WODs],
+      wordList: [acceptedWords, WODs, specialWords],
       keyList: "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(""),
       wordOfTheDay: getTodayWord(),
     },
@@ -118,7 +118,8 @@ export const useMainStore = defineStore({
         console.log(assembledWord);
         if (
           this.locale.wordList[0].includes(assembledWord.toLowerCase()) ||
-          this.locale.wordList[1].includes(assembledWord.toLowerCase())
+          this.locale.wordList[1].includes(assembledWord.toLowerCase()) ||
+          this.locale.wordList[2].includes(assembledWord.toLowerCase())
         ) {
           let WordScores = [0, 0, 0];
           let emojis = ["🟩", "🟨", "⬜"];
@@ -199,5 +200,8 @@ export const useMainStore = defineStore({
       );
       this.ui.isModalOpen = true;
     },
+  },
+  persistedState: {
+    persist: false,
   },
 });

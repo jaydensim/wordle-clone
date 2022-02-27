@@ -28,13 +28,12 @@ section.modal {
 div.std-modal {
   display: flex;
   justify-content: center;
-  align-items: center;
   background-color: #fff;
   border: 2px solid #f3f6f9;
   border-radius: 8px;
   max-width: calc(100vw - 50px);
   width: 500px;
-  animation: scale-in 1s cubic-bezier(0.19, 1, 0.22, 1);
+  animation: scale-in 0.5s cubic-bezier(0.19, 1, 0.22, 1);
   box-shadow: 0px 0.5px 0.6px hsl(210deg 10% 60% / 0.34),
     0px 2.9px 3.3px -0.4px hsl(210deg 10% 60% / 0.34),
     0px 5.3px 6px -0.7px hsl(210deg 10% 60% / 0.34),
@@ -48,14 +47,14 @@ div.std-modal {
 }
 
 .inner {
+  width: 100%;
   margin: 1rem 1rem 1.5rem 1rem;
 }
 
 @keyframes scale-in {
-  0%,
-  50% {
+  0% {
     opacity: 0;
-    transform: scale(0.9);
+    transform: scale(0.95);
   }
   100% {
     opacity: 1;

@@ -12948,5 +12948,6 @@ export const acceptedWords = [
   "zygon",
   "zymes",
   "zymic",
-  "zzzzz",
 ];
+
+export const specialWords = ["zzzzz", "eeeee", "qqqqq"];

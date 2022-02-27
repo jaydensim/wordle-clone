@@ -1,5 +1,10 @@
 <script setup>
+import { useMainStore } from "../stores/main.js";
 import { useLocaleStore } from "../stores/locale.js";
+
+import SettingsConfigModal from "./SettingsConfigModal.vue";
+
+const mainStore = useMainStore();
 const localeStore = useLocaleStore();
 </script>
 
@@ -12,12 +17,16 @@ const localeStore = useLocaleStore();
       </p>
     </section>
     <section class="right">
-      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+      <button
+        @click="
+          () => {
+            mainStore.ui.isModalOpen = true;
+            mainStore.ui.modalCurrentView = SettingsConfigModal;
+          }
+        "
+      >
         {{ localeStore.cLangStrings.app.headerButtons.settings }}
-      </a>
-      <a href="https://app.defencejobs.gov.au/olat" target="_blank">
-        {{ localeStore.cLangStrings.app.headerButtons.shareGame }}
-      </a>
+      </button>
     </section>
   </header>
 </template>

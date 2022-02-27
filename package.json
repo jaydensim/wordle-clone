@@ -10,6 +10,7 @@
   "dependencies": {
     "@fontsource/manrope": "^4.5.4",
     "pinia": "^2.0.11",
+    "pinia-plugin-persistedstate-2": "^1.0.0",
     "vite-plugin-environment": "^1.1.0",
     "vue": "^3.2.29"
   },

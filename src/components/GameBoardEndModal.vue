@@ -9,39 +9,13 @@ import { ref } from "vue";
 const mainStore = useMainStore();
 const localeStore = useLocaleStore();
 
-let geMT =
-  localeStore.cLangStrings.game.endscreen[mainStore.gameStatus.result].titles[
-    Math.floor(
-      Math.random() *
-        localeStore.cLangStrings.game.endscreen[mainStore.gameStatus.result]
-          .titles.length
-    )
-  ];
-
-let geMU =
-  localeStore.cLangStrings.game.endscreen[mainStore.gameStatus.result]
-    .subtitle +
-  " " +
-  localeStore.cLangStrings.game.endscreen[mainStore.gameStatus.result]
-    .subtitleMarkLater[mainStore.gameTickerIncrement - 1];
-
-let geMS =
-  localeStore.cLangStrings.game.endscreen[mainStore.gameStatus.result]
-    .sharePromptText[
-    Math.floor(
-      Math.random() *
-        localeStore.cLangStrings.game.endscreen[mainStore.gameStatus.result]
-          .sharePromptText.length
-    )
-  ];
-
 let timer = null;
 let currentTimeDown = ref("00:00:00");
 
 const vTimerCountdown = {
   mounted: () => {
     console.log("mounted");
-    timer = setInterval(() => {
+    /*timer = setInterval(() => {
       let dateObj = getNextWordleTime();
       currentTimeDown.value =
         String(dateObj.getHours()).padStart(2, "0") +
@@ -50,6 +24,7 @@ const vTimerCountdown = {
         ":" +
         String(dateObj.getSeconds()).padStart(2, "0");
     }, 500);
+    */
   },
   beforeUnmount: () => {
     console.log("cleared");
@@ -61,11 +36,30 @@ const vTimerCountdown = {
 <template>
   <section class="GameBoardEndModal">
     <h3 v-if="mainStore.gameStatus.result == 'success'">
-      THE WORD WAS <em>{{ mainStore.locale.wordOfTheDay }}</em>
+      {{ localeStore.cLangStrings.game.endscreen.thewordwas }}
+      <em>{{ mainStore.locale.wordOfTheDay }}</em>
     </h3>
-    <h1>{{ geMT }}</h1>
+    <h1>
+      {{
+        localeStore.cLangStrings.game.endscreen[mainStore.gameStatus.result]
+          .titles[
+          Math.floor(
+            Math.random() *
+              localeStore.cLangStrings.game.endscreen[
+                mainStore.gameStatus.result
+              ].titles.length
+          )
+        ]
+      }}
+    </h1>
     <p>
-      {{ geMU }}
+      {{
+        localeStore.cLangStrings.game.endscreen[mainStore.gameStatus.result]
+          .subtitle +
+        " " +
+        localeStore.cLangStrings.game.endscreen[mainStore.gameStatus.result]
+          .subtitleMarkLater[mainStore.gameTickerIncrement - 1]
+      }}
     </p>
     <img
       src="../assets/you-gassed-it.gif"
@@ -80,7 +74,19 @@ const vTimerCountdown = {
       v-if="mainStore.gameStatus.result == 'faliure'"
     />
     <section class="outer">
-      <h3>{{ geMS }}</h3>
+      <h3>
+        {{
+          localeStore.cLangStrings.game.endscreen[mainStore.gameStatus.result]
+            .sharePromptText[
+            Math.floor(
+              Math.random() *
+                localeStore.cLangStrings.game.endscreen[
+                  mainStore.gameStatus.result
+                ].sharePromptText.length
+            )
+          ]
+        }}
+      </h3>
 
       <section class="wordleTileSelector">
         <p>{{ mainStore.currentBoardGeneratedEmojiTile }}</p>
@@ -104,7 +110,7 @@ const vTimerCountdown = {
         </a>
       </section>
     </section>
-    <section class="outer" style="display: block">
+    <section class="outer" style="display: none">
       <h3>{{ localeStore.cLangStrings.game.endscreen.nextWordleTime }}</h3>
 
       <section>

@@ -1,46 +1,46 @@
-export const lang_en = {
-  langISO: "EN",
-  langName: "English",
+export const lang_uk = {
+  langISO: "UK",
+  langName: "Ukrainian",
   variants: [
     {
-      variantISO: "AU",
-      variantName: "Australia",
+      variantISO: "UA",
+      variantName: "Ukraine",
       strings: {
         app: {
           title: "Wordle",
-          snark: "But it's not owned by the New York Times",
+          snark: "Зроблено не New York Times",
           headerButtons: {
-            settings: "Settings",
+            settings: "Вподобання",
           },
           settings: {
-            title: "Settings",
+            title: "Вподобання",
             section: {
-              accessibility: "Accessibility",
-              interface: "Interface",
+              accessibility: "Інвалідність",
+              interface: "Дизайн",
             },
             setting: {
               language: {
-                name: "Language",
-                description: "The language Wordle will use for the interface.",
+                name: "Мову",
+                description: "Мова інтерфейсу",
               },
               highContrast: {
-                name: "High Contrast",
-                description: "Increase the contrast of tiles on the board.",
+                name: "Високий контраст",
+                description: "Збільште плитки контрастність",
               },
             },
           },
         },
         game: {
           endscreen: {
-            thewordwas: "THE WORD WAS",
-            nextWordleTime: "Next wordle in",
+            thewordwas: "СЛОВО БУЛО",
+            nextWordleTime: "Наступне слово",
             buttonLabels: {
-              faliuremanagement: "Faliure Management",
-              spamtwitter: "Spam twitter with more useless shit",
+              faliuremanagement: "Управління помилками",
+              spamtwitter: "Спам у Твіттері",
             },
             success: {
-              titles: ["Awesome!", "You did it!", "Genius!"],
-              subtitle: "You solved today's wordle in",
+              titles: ["Чудово!", "Ви вирішили слово в", "Геній!"],
+              subtitle: "Натисніть кнопку, щоб поділитись словом",
               subtitleMarkLater: [
                 "one go!",
                 "two goes!",

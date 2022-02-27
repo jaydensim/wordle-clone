@@ -1,13 +1,14 @@
 <script setup>
 import { useMainStore } from "../stores/main.js";
+import { useSettingsStore } from "../stores/settings";
+
 const mainStore = useMainStore();
+const settingsStore = useSettingsStore();
 
 defineProps({
   rowIndex: Number,
   tileIndex: Number,
 });
-
-const highContrast = localStorage.getItem("highcontrast") == "true" || false;
 </script>
 
 <template>
@@ -20,7 +21,7 @@ const highContrast = localStorage.getItem("highcontrast") == "true" || false;
     "
     :data-status="mainStore.currentBoard[rowIndex][tileIndex].status"
     :data-delay="tileIndex"
-    :data-highcontrast="highContrast"
+    :data-highcontrast="settingsStore.highContrast"
   >
     <p>
       {{ mainStore.currentBoard[rowIndex][tileIndex].letter }}
